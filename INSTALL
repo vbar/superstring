@@ -1,0 +1,20 @@
+superstring is a C++ program, so you need a C++ compiler to build it
+(it's been developed with gcc 4.4 on Linux). It's built using autoconf
+and automake, and because the repository doesn't contain the files
+that they generate, you need both installed before starting the
+build. The program also depends on libstree
+(http://www.icir.org/christian/libstree), a generic suffix tree
+library. The first part of the build is generating the makefiles:
+
+autoheader
+aclocal
+automake --add-missing
+autoconf
+
+Once created, the generated files should stay OK even when you edit
+superstring source code (autotools set the makefiles to remake
+themselves when their source Makefile.am changes). Afterwards, the
+build is the same as for any GNU distribution:
+
+./configure
+make

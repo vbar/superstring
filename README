@@ -1,0 +1,28 @@
+superstring - greedy approximation of the shortest common superstring
+
+Finding the shortest string containing each member of the input string
+set as a substring is a problem with applications in data compression,
+computer security and bioinformatics. As the problem is NP-complete
+(it can be reformulated as ordering the input strings to maximize
+their overlap), it is usually solved approximately. This package
+implements a simple approximation algorithm described in
+
+Jonathan S. Turner
+Approximation algorithms for the shortest common superstring problem
+Information and Computation 83, 1-20, 1989
+
+The code does have some shortcuts - most importantly, it uses a
+3rd-party suffix tree instead of an implementation tuned to the
+algorithm - so Turner's performance analysis isn't wholly applicable,
+but it should be enough to play with.
+
+When run without arguments, superstring expects the input set on its
+standard input, one string per line (IOW the strings cannot contain a
+newline; apart from that, they are manipulated as sequences of bytes,
+without any encoding) and prints the resulting superstring (terminated
+by a newline) on its standard output. It also prints some debug
+messages to standard error. superstring can also be run with a -t
+parameter, in which case it runs the algorithm on a few hardcoded test
+cases and checks the results.
+
+
